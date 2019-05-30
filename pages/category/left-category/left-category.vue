@@ -33,9 +33,15 @@
 					</view>
 				</view>
 			</scroll-view>
+			<!-- 底部购物栏 -->
 			<view class="cart" :class="isTopCart ? 'top-layer' : ''">
 				<!-- 购物车按钮 -->
-				<view class="iconfont cart-icon" @click="showCart" :class="[cartIconAnimation]">&#xe601;</view>
+				<view class="iconfont cart-icon" @click="showCart" :class="[cartIconAnimation]">
+					<span>&#xe601;</span>
+					<view class="cart-badge" v-if="cartTotalCount > 0">
+						<span>{{ cartTotalCount }}</span>
+					</view>
+				</view>
 				<!-- 总价信息 -->
 				<view class="price-info" :class="cartTotalCount > 0 ? 'active' : ''">
 					<template v-if="cartTotalCount <= 0">未选购商品</template>
@@ -706,6 +712,7 @@
 		bottom: 0;
 		width: 100%;
 
+
 		&.top-layer {
 			z-index: 9999999;
 		}
@@ -736,6 +743,30 @@
 			left: 40upx;
 			background: rgb(54, 54, 54);
 			border: 5px solid rgb(68, 68, 68);
+
+			.cart-badge {
+				width: 32upx;
+				height: 32upx;
+				position: absolute;
+				z-index: 1;
+				right: 0upx;
+				top: -18upx;
+				background: red;
+				color: #fff;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 32upx;
+				font-size: 28upx;
+
+				span {
+					-webkit-transform: scale(.75);
+					transform: scale(.75);
+					display: inline-block;
+					width: 100%;
+					height: 100%;
+				}
+			}
+
 
 			&.shake {
 				-webkit-animation: shake .5s ease-in-out;
