@@ -548,6 +548,7 @@
 		flex: 1;
 		display: -webkit-flex;
 		display: flex;
+		font-size: 28upx;
 		-webkit-align-items: center;
 		align-items: center;
 	}
@@ -563,7 +564,7 @@
 		padding-left: 4vw;
 		color: #666;
 		text-decoration: none;
-		font-size: .346667rem;
+		font-size: 28upx;
 		line-height: .4rem;
 		line-height: 4vw;
 	}
